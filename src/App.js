@@ -1,8 +1,30 @@
+import BugSplat from 'bugsplat';
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const bugsplat = new BugSplat('Fred', 'my-react-crasher', '1.0.0');
+
+  function handleClick(e) {
+    e.preventDefault();
+    throw new Error('BugSplat rocks!');
+  }
+
+  async function handleClickAsync(e) {
+    e.preventDefault();
+    throw new Error('BugSplat rocks!');
+  }
+
+  async function catchError(e) {
+    e.preventDefault();
+    try {
+      throw new Error('BugSplat rocks!');
+    } catch (error) {
+      await bugsplat.post(error);
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +40,18 @@ function App() {
         >
           Learn React
         </a>
+        <br/>
+        <button onClick={handleClick}>
+          Unhandled Exception!
+        </button>
+        <br/>
+        <button onClick={handleClickAsync}>
+          Unhandled Promise Rejection!
+        </button>
+        <br/>
+        <button onClick={catchError}>
+          Try Catch!
+        </button>
       </header>
     </div>
   );

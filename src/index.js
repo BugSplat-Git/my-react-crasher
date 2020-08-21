@@ -3,6 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import BugSplat from 'bugsplat';
+
+const bugsplat = new BugSplat('Fred', 'my-react-crasher', '1.0.0');
+
+window.onunhandledrejection = async (rejection) => {
+  await bugsplat.post(rejection.reason)
+}
+
+window.onerror = async (event, source, lineno, colno, error) => {
+  await bugsplat.post(error);
+}
 
 ReactDOM.render(
   <React.StrictMode>
