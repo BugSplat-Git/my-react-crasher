@@ -1,10 +1,14 @@
-import BugSplat from 'bugsplat';
+import { BugSplat } from 'bugsplat';
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   const bugsplat = new BugSplat('Fred', 'my-react-crasher', '1.0.0');
+  bugsplat.setDefaultAppKey('key!');
+  bugsplat.setDefaultDescription('description!');
+  bugsplat.setDefaultEmail('bobby@bugsplat.com');
+  bugsplat.setDefaultUser('Bobby');
 
   function handleClick(e) {
     e.preventDefault();
