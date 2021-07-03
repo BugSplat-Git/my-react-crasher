@@ -8,8 +8,8 @@ function App() {
   const bugsplat = new BugSplat(packageJson.database, packageJson.name, packageJson.version);
   bugsplat.setDefaultAppKey('key!');
   bugsplat.setDefaultDescription('description!');
-  bugsplat.setDefaultEmail('bobby@bugsplat.com');
-  bugsplat.setDefaultUser('Bobby');
+  bugsplat.setDefaultEmail('fred@bugsplat.com');
+  bugsplat.setDefaultUser('Fred');
 
   function handleClick(e) {
     e.preventDefault();
