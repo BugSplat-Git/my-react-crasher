@@ -2,9 +2,10 @@ import { BugSplat } from 'bugsplat';
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+const packageJson = require('../package.json');
 
 function App() {
-  const bugsplat = new BugSplat('Fred', 'my-react-crasher', '1.0.0');
+  const bugsplat = new BugSplat(packageJson.database, packageJson.name, packageJson.version);
   bugsplat.setDefaultAppKey('key!');
   bugsplat.setDefaultDescription('description!');
   bugsplat.setDefaultEmail('bobby@bugsplat.com');
