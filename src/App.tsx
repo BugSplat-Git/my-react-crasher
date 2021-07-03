@@ -1,5 +1,5 @@
 import { BugSplat } from 'bugsplat';
-import React from 'react';
+import { MouseEvent } from 'react';
 import logo from './logo.svg';
 import './App.css';
 const packageJson = require('../package.json');
@@ -11,17 +11,17 @@ function App() {
   bugsplat.setDefaultEmail('bobby@bugsplat.com');
   bugsplat.setDefaultUser('Bobby');
 
-  function handleClick(e) {
+  function handleClick(e: MouseEvent) {
     e.preventDefault();
     throw new Error('BugSplat rocks!');
   }
 
-  async function handleClickAsync(e) {
+  async function handleClickAsync(e: MouseEvent) {
     e.preventDefault();
     throw new Error('BugSplat rocks!');
   }
 
-  async function catchError(e) {
+  async function catchError(e: MouseEvent) {
     e.preventDefault();
     try {
       throw new Error('BugSplat rocks!');
