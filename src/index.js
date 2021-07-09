@@ -4,12 +4,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+const packageJson = require('../package.json');
 
-const bugsplat = new BugSplat('Fred', 'my-react-crasher', '1.0.0');
+const bugsplat = new BugSplat(packageJson.database, packageJson.name, packageJson.version);
 bugsplat.setDefaultAppKey('key!');
 bugsplat.setDefaultDescription('description!');
-bugsplat.setDefaultEmail('bobby@bugsplat.com');
-bugsplat.setDefaultUser('Bobby');
+bugsplat.setDefaultEmail('fred@bugsplat.com');
+bugsplat.setDefaultUser('Fred');
 
 window.onunhandledrejection = async (rejection) => {
   await bugsplat.post(rejection.reason);
