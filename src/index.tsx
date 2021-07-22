@@ -21,7 +21,7 @@ window.onerror = async (event, source, lineno, colno, error) => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App bugsplat={bugsplat}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

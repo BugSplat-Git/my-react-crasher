@@ -1,15 +1,10 @@
 import { BugSplat } from 'bugsplat';
 import { MouseEvent } from 'react';
-import logo from './logo.svg';
 import './App.css';
-const packageJson = require('../package.json');
+import logo from './logo.svg';
 
-function App() {
-  const bugsplat = new BugSplat(packageJson.database, packageJson.name, packageJson.version);
-  bugsplat.setDefaultAppKey('key!');
-  bugsplat.setDefaultDescription('description!');
-  bugsplat.setDefaultEmail('fred@bugsplat.com');
-  bugsplat.setDefaultUser('Fred');
+function App(props: { bugsplat: BugSplat }) {
+  const { bugsplat } = props;
 
   function handleClick(e: MouseEvent) {
     e.preventDefault();
